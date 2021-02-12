@@ -41,8 +41,11 @@ class MyExtendedBoundaryConditions(BoundaryConditions, ABC):
             numpy.ndarray with shape = (ndofs, 1), where ndofs = 2 * ((nelx+1) * (nely + 1))
         """
 
+        assert len(fxy) <= self.ndof
+
         f = numpy.zeros((self.ndof, 1))
         for item in fxy:
+            assert len(item) == 4
             x_ = item[0]
             y_ = item[1]
             fx_ = item[2] if item[2] else 0
@@ -71,8 +74,11 @@ class MyExtendedBoundaryConditions(BoundaryConditions, ABC):
                 numpy.ndarray with shape = (ndofs, 1), where ndofs = 2 * ((nelx+1) * (nely + 1))
             """
 
+        assert len(fixedxy) <= self.ndof
+
         fixed_list = []
         for item in fixedxy:
+            assert len(item) == 3
             x_ = item[0]
             y_ = item[1]
             x_y_ = item[2]
@@ -89,9 +95,10 @@ class MyExtendedBoundaryConditions(BoundaryConditions, ABC):
 
 
 class MyBoundaryConditions(MyExtendedBoundaryConditions):
-    """Customizable Boundary conditions"""
+    """This is a class of Customizable Boundary Conditions"""
+
     def __init__(self, nelx, nely, list_of_fixedxy, list_of_forces, dict_of_passives, dict_of_actives):
-        super().__init__(nelx, nely)
+        super(MyBoundaryConditions).__init__(nelx, nely)
         self.list_of_fixedxy = list_of_fixedxy
         self.list_of_forces = list_of_forces
         try:
@@ -114,7 +121,6 @@ class MyBoundaryConditions(MyExtendedBoundaryConditions):
             self.active_max_x = None
             self.active_min_y = None
             self.active_max_y = None
-
 
     @property
     def fixed_nodes(self):

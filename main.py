@@ -8,7 +8,7 @@ from topopt.filters import DensityBasedFilter
 import myutils.my_guis as mguis
 
 nelx, nely = 100, 50  # Number of elements in the x and y
-volfrac = 0.2  # Volume fraction for constraints
+volfrac = 0.5  # Volume fraction for constraints
 penal = 15  # Penalty for SIMP
 rmin = 2  # Filter radius
 
