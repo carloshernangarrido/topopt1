@@ -2,7 +2,7 @@ import numpy
 
 
 def input_data():
-    nelx, nely = 100, 50  # Number of elements in the x and y
+    nelx, nely = 50, 30  # Number of elements in the x and y
     volfrac = 0.06  # Volume fraction for constraints
     penal = 15  # Penalty for SIMP
     rmin = 2  # Filter radius
@@ -11,7 +11,7 @@ def input_data():
     x = volfrac * numpy.ones(nely * nelx, dtype=float)
 
     # Boundary conditions defining the loads and fixed points
-    list_of_fixedxy = [(round(0.25 * nelx), round(0.75 * nely), 'y'), (round(0.75 * nelx), round(0.75 * nely), 'y'),
+    list_of_fixedxy = [(round(0.25 * nelx), round(0.8 * nely), 'y'), (round(0.75 * nelx), round(0.8 * nely), 'y'),
                        (round(0.9 * nelx), round(0.5 * nely), 'xy')]
 
     list_of_forces = [(round(0.1 * nelx), round(0.5 * nely), 0, -1),

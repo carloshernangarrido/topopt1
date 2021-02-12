@@ -59,7 +59,8 @@ class GUI(object):
         pe_ = numpy.zeros((self.problem.nely, self.problem.nelx))
         pe = pe_
         for p in self.problem.bc.passive_elements:
-            x, y = id_to_xy(p, nelx=self.problem.nelx-1, nely=self.problem.nely-1)#  p // self.problem.nely, p % self.problem.nely
+            x, y = id_to_xy(p, nelx=self.problem.nelx - 1, nely=self.problem.nely - 1)  # p // self.problem.nely, p %
+            # self.problem.nely
             pe[y, x] = 1
         self.ax.imshow(
             pe_, cmap='summer',
