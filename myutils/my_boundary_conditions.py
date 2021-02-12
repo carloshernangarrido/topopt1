@@ -98,7 +98,7 @@ class MyBoundaryConditions(MyExtendedBoundaryConditions):
     """This is a class of Customizable Boundary Conditions"""
 
     def __init__(self, nelx, nely, list_of_fixedxy, list_of_forces, dict_of_passives, dict_of_actives):
-        super(MyBoundaryConditions).__init__(nelx, nely)
+        super().__init__(nelx, nely)
         self.list_of_fixedxy = list_of_fixedxy
         self.list_of_forces = list_of_forces
         try:

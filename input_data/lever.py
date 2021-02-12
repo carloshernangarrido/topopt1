@@ -23,4 +23,4 @@ def input_data():
                        'max_x': round((0.5 + 0.009) * nelx), 'max_y': round((0.5 + 0.009) * nely)}
     dict_of_actives = {}
 
-    return nelx, nely, list_of_fixedxy, list_of_forces, dict_of_passives, dict_of_actives
+    return x, rmin, volfrac, penal, nelx, nely, list_of_fixedxy, list_of_forces, dict_of_passives, dict_of_actives

@@ -14,7 +14,7 @@ from topopt.filters import DensityBasedFilter
 
 from input_data.lever import input_data
 
-nelx, nely, list_of_fixedxy, list_of_forces, dict_of_passives, dict_of_actives = input_data()
+x, rmin, volfrac, penal, nelx, nely, list_of_fixedxy, list_of_forces, dict_of_passives, dict_of_actives = input_data()
 
 # bc = bcs.LBracketBoundaryConditions(nelx, nely, minx=10, maxy=10)
 bc = mbcs.MyBoundaryConditions(nelx, nely, list_of_fixedxy=list_of_fixedxy, list_of_forces=list_of_forces,
